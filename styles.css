@@ -31,20 +31,13 @@ body {
 }
 
 .sidebar h1 {
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   font-size: 24px;
 }
 
-.sidebar-group {
+nav {
   display: grid;
   gap: 10px;
-  margin-bottom: 22px;
-}
-
-.sidebar-title {
-  margin: 0;
-  font-size: 12px;
-  color: #95a6d9;
 }
 
 .nav-btn {
@@ -65,15 +58,8 @@ body {
 
 .content {
   padding: 24px;
-}
-
-.page {
-  display: none;
-  gap: 16px;
-}
-
-.page.active {
   display: grid;
+  gap: 16px;
 }
 
 header h2 {
@@ -83,23 +69,6 @@ header h2 {
 header p {
   margin: 6px 0 0;
   color: var(--muted);
-}
-
-
-.meta-row {
-  margin-top: 10px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.meta-pill {
-  background: #eef2ff;
-  color: #42558b;
-  border: 1px solid #d8e1ff;
-  border-radius: 999px;
-  font-size: 12px;
-  padding: 6px 10px;
 }
 
 .panel {
@@ -153,12 +122,6 @@ button.secondary {
   color: #2e4ed6;
 }
 
-button.ghost {
-  background: #fff;
-  color: #3f5391;
-  border: 1px solid var(--line);
-}
-
 .status {
   margin-top: 10px;
   color: var(--muted);
@@ -170,56 +133,16 @@ button.ghost {
   background: #eef2ff;
   border-radius: 10px;
   padding: 4px;
-  flex-wrap: wrap;
-  gap: 4px;
 }
 
-.date-btn {
+.period-btn {
   background: transparent;
   color: #4b5f92;
 }
 
-.date-btn.active {
+.period-btn.active {
   background: #3355ff;
   color: #fff;
-}
-
-.custom-range {
-  margin-top: 12px;
-  display: flex;
-  align-items: end;
-  gap: 10px;
-}
-
-.hidden {
-  display: none;
-}
-
-
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(160px, 1fr));
-  gap: 10px;
-}
-
-.kpi-card {
-  border: 1px solid var(--line);
-  background: #fafcff;
-  border-radius: 12px;
-  padding: 12px;
-}
-
-.kpi-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.kpi-card strong {
-  display: block;
-  margin-top: 8px;
-  font-size: 20px;
-  color: #20305e;
 }
 
 canvas {
