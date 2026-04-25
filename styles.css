@@ -1,0 +1,208 @@
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --line: #dce3f0;
+  --brand: #3355ff;
+  --text: #1f2a44;
+  --muted: #61708e;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #111a33;
+  color: #fff;
+  padding: 28px 20px;
+}
+
+.sidebar h1 {
+  margin: 0 0 20px;
+  font-size: 24px;
+}
+
+.sidebar-group {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 12px;
+  color: #95a6d9;
+}
+
+.nav-btn {
+  border: 1px solid #2c3d73;
+  background: #1a2a56;
+  color: #dbe6ff;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-btn.active {
+  background: #365bff;
+  color: #fff;
+  border-color: #6f8bff;
+}
+
+.content {
+  padding: 24px;
+}
+
+.page {
+  display: none;
+  gap: 16px;
+}
+
+.page.active {
+  display: grid;
+}
+
+header h2 {
+  margin: 0;
+}
+
+header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.panel h3 {
+  margin: 0 0 12px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+label {
+  font-size: 13px;
+  color: var(--muted);
+  display: grid;
+  gap: 6px;
+}
+
+input {
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 10px;
+}
+
+.button-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background: var(--brand);
+  color: #fff;
+}
+
+button.secondary {
+  background: #eaf0ff;
+  color: #2e4ed6;
+}
+
+button.ghost {
+  background: #fff;
+  color: #3f5391;
+  border: 1px solid var(--line);
+}
+
+.status {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.segment {
+  display: inline-flex;
+  background: #eef2ff;
+  border-radius: 10px;
+  padding: 4px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.date-btn {
+  background: transparent;
+  color: #4b5f92;
+}
+
+.date-btn.active {
+  background: #3355ff;
+  color: #fff;
+}
+
+.custom-range {
+  margin-top: 12px;
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+canvas {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 10px;
+  text-align: right;
+  font-size: 13px;
+}
+
+th:first-child,
+td:first-child,
+th:nth-child(2),
+td:nth-child(2),
+th:nth-child(3),
+td:nth-child(3) {
+  text-align: left;
+}
