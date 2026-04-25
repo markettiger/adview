@@ -10,112 +10,73 @@
     <div class="layout">
       <aside class="sidebar">
         <h1>AdView</h1>
-
-        <section class="sidebar-group">
-          <p class="sidebar-title">페이지</p>
-          <button class="nav-btn page-btn active" data-page="dashboard">대시보드</button>
-          <button class="nav-btn page-btn" data-page="integration">API 연동 관리</button>
-        </section>
-
-        <section class="sidebar-group">
-          <p class="sidebar-title">데이터 필터</p>
-          <button class="nav-btn filter-btn active" data-filter="all">전체 광고 데이터</button>
-          <button class="nav-btn filter-btn" data-filter="meta">메타 광고 데이터</button>
-          <button class="nav-btn filter-btn" data-filter="apple">애플 애즈 데이터</button>
-        </section>
+        <nav>
+          <button class="nav-btn active" data-filter="all">전체 광고 데이터</button>
+          <button class="nav-btn" data-filter="meta">메타 광고 데이터</button>
+          <button class="nav-btn" data-filter="apple">애플 애즈 데이터</button>
+        </nav>
       </aside>
 
       <main class="content">
-        <section id="dashboardPage" class="page active">
-          <header>
-            <h2>광고 성과 대시보드 (PC)</h2>
-            <p>메타 애즈 / 애플 애즈 API 연동 기반 통합 리포트</p>
-            <div class="meta-row">
-              <span id="rangeSummary" class="meta-pill">선택 기간: -</span>
-              <span id="lastUpdated" class="meta-pill">마지막 갱신: 없음</span>
-            </div>
-          </header>
+        <header>
+          <h2>광고 성과 대시보드 (PC)</h2>
+          <p>메타 애즈 / 애플 애즈 API 연동 기반 통합 리포트</p>
+        </header>
 
-          <section class="panel controls-panel">
-            <h3>기간 필터</h3>
-            <div class="segment">
-              <button class="date-btn active" data-range="yesterday">어제</button>
-              <button class="date-btn" data-range="today">오늘</button>
-              <button class="date-btn" data-range="lastWeek">지난주</button>
-              <button class="date-btn" data-range="thisWeek">이번주</button>
-              <button class="date-btn" data-range="custom">직접 선택</button>
-            </div>
-            <div id="customDateRange" class="custom-range hidden">
-              <label>
-                시작일
-                <input id="startDate" type="date" />
-              </label>
-              <label>
-                종료일
-                <input id="endDate" type="date" />
-              </label>
-              <button id="applyCustomDate" class="secondary">적용</button>
-            </div>
-            <div class="button-row">
-              <button id="refreshBtn">저장된 연동으로 데이터 새로고침</button>
-            </div>
-            <p id="dashboardStatus" class="status">대기 중</p>
-          </section>
-
-          <section class="panel chart-panel">
-            <h3>성과 그래프 (Impressions)</h3>
-            <canvas id="chart" width="980" height="320"></canvas>
-          </section>
-
-          <section class="panel table-panel">
-            <h3>주요 광고 지표</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>날짜</th>
-                  <th>플랫폼</th>
-                  <th>Ad ID</th>
-                  <th>노출수</th>
-                  <th>클릭수</th>
-                  <th>전환수</th>
-                  <th>비용</th>
-                  <th>CTR</th>
-                </tr>
-              </thead>
-              <tbody id="tableBody"></tbody>
-            </table>
-          </section>
+        <section class="panel form-panel">
+          <h3>API 연동 설정</h3>
+          <div class="form-grid">
+            <label>
+              API Base URL
+              <input id="apiBase" type="text" placeholder="예: https://api.your-domain.com" />
+            </label>
+            <label>
+              메타 광고 ID
+              <input id="metaAdId" type="text" placeholder="Meta Ad ID 입력" />
+            </label>
+            <label>
+              애플 광고 ID
+              <input id="appleAdId" type="text" placeholder="Apple Ads ID 입력" />
+            </label>
+          </div>
+          <div class="button-row">
+            <button id="loadBtn">데이터 불러오기</button>
+            <button id="mockBtn" class="secondary">샘플 데이터 보기</button>
+          </div>
+          <p id="status" class="status">대기 중</p>
         </section>
 
-        <section id="integrationPage" class="page">
-          <header>
-            <h2>API 연동 관리</h2>
-            <p>사이드바 버튼으로만 접근하는 설정 페이지입니다.</p>
-          </header>
+        <section class="panel controls-panel">
+          <h3>기간 단위</h3>
+          <div class="segment">
+            <button class="period-btn active" data-period="day">일간</button>
+            <button class="period-btn" data-period="week">주간</button>
+            <button class="period-btn" data-period="month">월간</button>
+          </div>
+        </section>
 
-          <section class="panel form-panel">
-            <h3>메타/애플 애즈 연동</h3>
-            <div class="form-grid">
-              <label>
-                API Base URL
-                <input id="apiBase" type="text" placeholder="예: https://api.your-domain.com" />
-              </label>
-              <label>
-                메타 광고 ID
-                <input id="metaAdId" type="text" placeholder="Meta Ad ID 입력" />
-              </label>
-              <label>
-                애플 광고 ID
-                <input id="appleAdId" type="text" placeholder="Apple Ads ID 입력" />
-              </label>
-            </div>
-            <div class="button-row">
-              <button id="saveConnectionBtn">API 연동 저장</button>
-              <button id="disconnectBtn" class="secondary">API 연동 해제</button>
-              <button id="mockBtn" class="ghost">샘플 데이터 보기</button>
-            </div>
-            <p id="integrationStatus" class="status">연동 정보가 없습니다.</p>
-          </section>
+        <section class="panel chart-panel">
+          <h3>성과 그래프 (Impressions)</h3>
+          <canvas id="chart" width="980" height="320"></canvas>
+        </section>
+
+        <section class="panel table-panel">
+          <h3>주요 광고 지표</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>날짜</th>
+                <th>플랫폼</th>
+                <th>Ad ID</th>
+                <th>노출수</th>
+                <th>클릭수</th>
+                <th>전환수</th>
+                <th>비용</th>
+                <th>CTR</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
         </section>
       </main>
     </div>
